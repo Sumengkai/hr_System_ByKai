@@ -1,2 +1,1 @@
-# hr_System_ByKai
-人資系統
+# new_hr_system
