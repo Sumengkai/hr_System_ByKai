@@ -42,13 +42,21 @@ public class EmployeeInfo {
 	public EmployeeInfo() {
 
 	}
-
 	public EmployeeInfo(String name, String id, String employeeEmail, String section, String situation) {
 		this.name = name;
 		this.id = id;
 		this.employeeEmail = employeeEmail;
 		this.section = section;
 		this.situation = situation;
+		
+	}
+	public EmployeeInfo(String employeeCode,String name, String id, String employeeEmail, String section, String situation) {
+		this.name = name;
+		this.id = id;
+		this.employeeEmail = employeeEmail;
+		this.section = section;
+		this.situation = situation;
+		this.employeeCode=employeeCode;
 	}
 
 	public String getEmployeeCode() {

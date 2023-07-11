@@ -83,7 +83,7 @@ public class EmployeeInfoServiceImpl implements EmployeeInfoService {
 		}
 
 		// 新增資料
-		EmployeeInfo employeeInfo = new EmployeeInfo(req.getName(), req.getId(), req.getEmployeeEmail(),
+		EmployeeInfo employeeInfo = new EmployeeInfo( req.getEmployeeCode(),req.getName(), req.getId(), req.getEmployeeEmail(),
 				req.getSection(), req.getSituation());
 		employeeInfo.setJoinTime(new Date());
 

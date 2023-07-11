@@ -231,7 +231,7 @@ public class WorkSystemServiceImpl implements WorkSystemService {
 			// 防87
 			if (endDate.isBefore(startDate)) {
 				return new WorkSystemRes("結束時間不可小於開始時間");
-			}
+			} 
 
 			// 因為worktime的格式是LocalDateTime 所以要將LocalDate轉型成LocalDateTime
 			LocalDateTime startDateTime = startDate.atStartOfDay();
@@ -698,7 +698,7 @@ public class WorkSystemServiceImpl implements WorkSystemService {
 		if (employeeManagerInfo.getLevel() < employeeStaffInfo.getLevel()) {
 			return new WorkSystemRes("您的權限不夠");
 		}
-		
+
 		// 尾數是00:00:00
 		LocalDateTime absenteeismDateTime = absenteeismDate.atStartOfDay();
 		// 因為新增曠職時 尾數是00:00:00 所以只要日期正確一定可以找到
