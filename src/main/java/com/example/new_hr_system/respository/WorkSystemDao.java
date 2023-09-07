@@ -7,6 +7,8 @@ import java.util.UUID;
 import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.example.new_hr_system.entity.WorkSystem;
@@ -14,6 +16,9 @@ import com.example.new_hr_system.entity.WorkSystem;
 @Transactional
 @Repository
 public interface WorkSystemDao extends JpaRepository<WorkSystem, UUID> {
+	@Query(value="SELECT * FROM employee_info where employee_code = :empCode",nativeQuery = true)
+	public List<WorkSystem> test(@Param ("empCode") String empCode);
+	
 	// ¤W¯Z¥´¥d
 	public List<WorkSystem> findByEmployeeCode(String employeeCode);
 

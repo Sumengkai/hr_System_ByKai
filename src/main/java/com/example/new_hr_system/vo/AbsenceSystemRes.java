@@ -1,14 +1,21 @@
 package com.example.new_hr_system.vo;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 import com.example.new_hr_system.entity.AbsenceSystem;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.databind.JsonSerializer;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+import springfox.documentation.spring.web.json.Json;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class AbsenceSystemRes {
+public class AbsenceSystemRes{
 
 	private UUID uuid;
 	
@@ -23,7 +30,7 @@ public class AbsenceSystemRes {
 	private LocalDate absenceDate;
 
 	private LocalDateTime workDateTime;
-
+	
 	private boolean yesOrNo;
 
 	private String message;
@@ -122,6 +129,8 @@ public class AbsenceSystemRes {
 	public void setUuid(UUID uuid) {
 		this.uuid = uuid;
 	}
+
+
 
 	
 

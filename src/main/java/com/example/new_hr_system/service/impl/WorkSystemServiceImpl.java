@@ -67,6 +67,8 @@ public class WorkSystemServiceImpl implements WorkSystemService {
 			}
 
 		}
+//		StringBuffer.
+		String s = "";
 		DateTimeFormatter formatDateTime = DateTimeFormatter.ofPattern("yyyy-M-d HH:mm");
 		String nowDateTimeString = LocalDateTime.now().format(formatDateTime);
 		LocalDateTime finalDateTime = LocalDateTime.parse(nowDateTimeString, formatDateTime);

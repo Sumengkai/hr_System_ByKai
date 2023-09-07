@@ -50,32 +50,34 @@ public class EmployeeInfoServiceImpl implements EmployeeInfoService {
 
 	@Override
 	public EmployeeInfo createEmployeeInfo(EmployeeInfoReq req) {
-		// 判斷部門
+		String empCode = "";
+		// 判斷部門5
 		if (req.getSection().equals("人資")) {
-			EmployeeInfo employeeInfo = new EmployeeInfo();
-			employeeInfo.setEmployeeCode("A" + req.getEmployeeCode());
+
+			empCode = "A" + req.getEmployeeCode();
+
 			// 找DB有無重複的資料
-			Optional<EmployeeInfo> employeeInfoOp = employeeInfoDao.findById(employeeInfo.getEmployeeCode());
+			Optional<EmployeeInfo> employeeInfoOp = employeeInfoDao.findById(empCode);
 			// 資料有重複就回傳null
 			if (employeeInfoOp.isPresent()) {
 				return null;
 			}
 		}
 		if (req.getSection().equals("會計")) {
-			EmployeeInfo employeeInfo = new EmployeeInfo();
-			employeeInfo.setEmployeeCode("B" + req.getEmployeeCode());
+			empCode = "B" + req.getEmployeeCode();
+
 			// 找DB有無重複的資料
-			Optional<EmployeeInfo> employeeInfoOp = employeeInfoDao.findById(employeeInfo.getEmployeeCode());
+			Optional<EmployeeInfo> employeeInfoOp = employeeInfoDao.findById(empCode);
 			// 資料有重複就回傳null
 			if (employeeInfoOp.isPresent()) {
 				return null;
 			}
 		}
 		if (req.getSection().equals("敲詐")) {
-			EmployeeInfo employeeInfo = new EmployeeInfo();
-			employeeInfo.setEmployeeCode("C" + req.getEmployeeCode());
+			empCode = "C" + req.getEmployeeCode();
+
 			// 找DB有無重複的資料
-			Optional<EmployeeInfo> employeeInfoOp = employeeInfoDao.findById(employeeInfo.getEmployeeCode());
+			Optional<EmployeeInfo> employeeInfoOp = employeeInfoDao.findById(empCode);
 			// 資料有重複就回傳null
 			if (employeeInfoOp.isPresent()) {
 				return null;
@@ -83,8 +85,8 @@ public class EmployeeInfoServiceImpl implements EmployeeInfoService {
 		}
 
 		// 新增資料
-		EmployeeInfo employeeInfo = new EmployeeInfo( req.getEmployeeCode(),req.getName(), req.getId(), req.getEmployeeEmail(),
-				req.getSection(), req.getSituation());
+		EmployeeInfo employeeInfo = new EmployeeInfo(empCode, req.getName(), req.getId(),
+				req.getEmployeeEmail(), req.getSection(), req.getSituation());
 		employeeInfo.setJoinTime(new Date());
 
 		List<EmployeeInfo> employeeIdList = employeeInfoDao.findAllById(req.getId());
